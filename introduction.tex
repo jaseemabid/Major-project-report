@@ -49,14 +49,23 @@ Alternate interfaces expand the features of git core to new dimensions.
 \textbf{This project aims to build an alternate interface to Git, which can be
   used from JavaScript.}
 
-\subsection{<any sub section here>}
+\section{Implementation details}
 
-\subsection{Literature Survey}
+At the heart of the project is a C++ core, written with libgit2 and node.js. The
+project core is similar to a \textit{Monolithic kernel}\cite{monolithic_kernel},
+where all communication from the JavaScript API, happens through the kernel. Its
+not possible for JavaScript API to bypass the core and talk to the git
+repository directly like a \textit{Microkernel}\cite{microkernel}
 
-\subsubsection{<Sub-subsection title>}
-some text\cite{citation-1-name-here}, some more text
+All interactions with git core are done with libgit2. It does the dirty work of
+parsing the git object store and returning appropriate data structures back to
+the application core. Node.js allows this data to be returned back to the
+JavaScript layer, by creating native bindings in C. It is this component that
+makes the project possible.
 
-\subsubsection{<Sub-subsection title>}
-even more text\footnote{<footnote here>}, and even more.
+JavaScript executes in various environments now, the most popular ones being web
+browsers and \textit{node.js}. It will be possible to write applications that
+can harness the power of git core, in a very intuitive manner using libnodegit.
+The simple scripts written in JavaScript will be executed by node.js.
 
 \section{Motivation}
