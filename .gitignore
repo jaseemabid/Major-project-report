@@ -1,8 +1,11 @@
 *.aux
+*.dsc
+*.fdb_latexmk
+*.fls
 *.lof
 *.log
 *.out
-*.toc
 *.pdf
-*.dsc
+*.toc
 *~
+*#
