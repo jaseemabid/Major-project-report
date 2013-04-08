@@ -23,8 +23,15 @@
 \documentclass[12pt,a4paper]{report}
 \usepackage[pdftex]{graphicx} %for embedding images
 \usepackage{url} %for proper url entries
-\usepackage[bookmarks, colorlinks=false, pdfborder={0 0 0}, pdftitle={<pdf title here>}, pdfauthor={<author's name here>}, pdfsubject={<subject here>}, pdfkeywords={<keywords here>}]{hyperref} %for creating links in the pdf version and other additional pdf attributes, no effect on the printed document
-%\usepackage[final]{pdfpages} %for embedding another pdf, remove if not required
+\usepackage[bookmarks,
+	colorlinks=false,
+	pdfborder={0 0 0},
+    pdftitle={Libnodegit - A JavaScript API for git repositories with node.js
+      and libgit2},
+    pdfauthor={Jaseem Abid},
+    pdfsubject={Major project report},
+    pdfkeywords={git, JavaScript, API design, library, node.js, v8}
+    ]{hyperref}
 
 \begin{document}
 \renewcommand\bibname{References} %Renames "Bibliography" to "References" on ref page
