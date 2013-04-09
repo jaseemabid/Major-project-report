@@ -1,0 +1,48 @@
+\section{Version Control Systems}
+
+A Version control is a system that records changes to a file or set of
+files over time so that you can recall specific versions later. It
+allows you to revert files or the entire project back to a previous
+state, compare changes over time, see who last modified something that
+might be causing a problem etc. It means if you mess things up or lose
+files, you can easily recover and you get all this for very little
+overhead. A VCS is normally used for source code and
+text files, but any type of file on a computer can be versioned. \\
+
+
+The 2 major types of version control systems are,
+
+\begin{enumerate}
+
+\item{Centralized Version Control System (CVCS)}  \hfill \\
+
+  Centralized version control systems are based on the idea that there
+  is a single central copy of your project somewhere, and programmers
+  will commit their changes to this central copy. Committing a change
+  simply means recording the change in the central sys- tem. Other
+  programmers can then see this change. They can also pull down the
+  change, and the version control tool will automatically update the
+  contents of any files that were changed.
+
+  Programmers no longer have to keep many copies of files on their
+  hard drives manually, because the version control tool can talk to
+  the central copy and retrieve any version they need on the fly.
+
+  Some of the most common centralized version control systems are CVS,
+  Subversion (or SVN) and Perforce.
+
+\item{Distributed Version Control System (DVCS)}  \hfill \\
+  A DVCS keeps track of software revisions and allows many developers
+  to work on a given project without necessarily being connected to a
+  common network. These systems do not necessarily rely on a central
+  server to store all the versions of a projects files. Instead, every
+  developer clones a copy of a repository and has the full history of
+  the project on their own hard drive. This copy (or clone) has all of
+  the metadata of the original.
+
+  The most popular DVCS are Git, Mercurial, Bazaar and also Arch,
+  Monotone, Darcs etc.
+\end{enumerate}
+
+Distributed Version Control Systems (DVCS) wins the comparison in most
+of the cases and git is one of those.
