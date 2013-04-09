@@ -49,6 +49,34 @@ Alternate interfaces expand the features of git core to new dimensions.
 \textbf{This project aims to build an alternate interface to Git, which can be
   used from JavaScript.}
 
+\section{Why libnodegit?}
+
+\newcommand\sectionTitle[1]{\begin{flushright}\textit{#1}\end{flushright}}
+\sectionTitle{The motivations behind the project}
+
+\textit{Git is awesome}! Amazing number of tools have been built using
+git, in ways that was never expected. Git at its core is a content
+addressable file system which can be used as a database. Its transport
+mechanisms are used to deploy applications, synchronize data etc. The
+possibilities of git are endless and by providing an alternate
+interface to git, libnodegit is extending the possibilities even more.
+
+People have built amazing tools on top of git core, like issue
+trackers\cite{gaskit}, blogging engines\cite{octopress}, project
+notification systems\cite{git-dude} smarter FTP clients\cite{git-ftp}
+that transfer only the changed files, production
+quality\cite{gollum-imporoved} wiki\cite{gollum} etc.
+
+Git is the standard way to deploy apps on heroku\cite{git-heroku} now,
+one of the largest PaaS\cite{PaaS} providers on the internet. Git is
+used in a much simpler manner by designers\cite{git-designers}, with a
+smaller subset. A lot of others tools and use cases are listed in the
+git wiki\cite{git-tools} for reference.
+
+By providing an API in a very popular, easy to use programming
+language, libnodegit aims to help people build the next great tool,
+much easier.
+
 \section{Implementation details}
 
 At the heart of the project is a C++ core, written with libgit2 and node.js. The
@@ -68,7 +96,7 @@ browsers and \textit{node.js}. It will be possible to write applications that
 can harness the power of git core, in a very intuitive manner using libnodegit.
 The simple scripts written in JavaScript will be executed by node.js.
 
-\section{Motivation, background and recent research}
+\section{Background and recent research}
 
 JavaScript is my primary programming language for last 3 years. I was introduced
 to Git over 2 years back and I have worked extensively with it since then. I
