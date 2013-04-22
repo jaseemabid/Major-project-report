@@ -2,8 +2,8 @@
 
 JavaScript is a prototype-based scripting language that is dynamic, weakly
 typed, and has first-class functions. Its syntax was influenced by the languages
-C and Java and it copies many names and naming conventions from Java, but the
-two languages are otherwise unrelated and have very different semantics. The key
+C and Java and it also copies many names and naming conventions, but the two
+languages are otherwise unrelated and have very different semantics. The key
 design principles within JavaScript are taken from the Self and Scheme
 programming languages. It is a multi-paradigm language, supporting
 object-oriented, imperative, and functional programming styles.
@@ -42,12 +42,12 @@ V8 can run standalone, or can be embedded into any C++ application. It compiles
 and executes JavaScript source code, handles memory allocation for objects, and
 garbage collects objects it no longer needs. V8’s stop-the-world, generational,
 accurate garbage collector is one of the keys to V8’s performance. It enables
-any C++ application to expose its own objects and functions to JavaScript code.
-It’s up to the programmer to decide on the objects and functions he would like
-to expose to JavaScript. This means an application can be written in C++, but an
-API for that can be exposed in JavaScript. This is exactly what libnodegit is.
-The core of the application is written in JavaScript and a richer API is
-exposed.
+any C++ application to expose its own objects and functions to JavaScript code
+and It’s up to the programmer to decide on the objects and functions he would
+like to expose to JavaScript. \textit{This means an application can be written
+  in C++, but an API for that can be exposed in JavaScript}. This is exactly
+what libnodegit is. The core of the application is written in JavaScript and a
+richer API is exposed.
 
 \subsection{Node.js }
 
@@ -55,11 +55,11 @@ Node.js adds the missing pieces to v8. Node describes itself as \textit{evented
   I/O for V8 javascript}. Its a toolkit for writing extremely high performance
 non-blocking event driven network servers in JavaScript. Think similar to
 Twisted\cite{twisted} or EventMachine\cite{eventmachine} but for JavaScript
-instead of Python or Ruby. On top of what v8 provides, Node adds non-blocking
-file and network I/O, process management, and bunch of other handy things on top
-of v8 and make it work on all platforms. Also, it gives access to numerous
-libraries and a package management system called Node Package
-Manager(npm)\cite{npm} to work with the library dependencies.
+instead of Python or Ruby. Node adds non-blocking file and network I/O, process
+management, and bunch of other handy things on top of what v8 provides, and make
+it work on all platforms. Also, it gives access to numerous libraries and a
+package management system called Node Package Manager(npm)\cite{npm} to work
+with the library dependencies.
 
 Its event-driven, non-blocking I/O model makes it lightweight and efficient,
 perfect for data-intensive real time applications that run across distributed
@@ -67,3 +67,29 @@ devices. Node.js is a good platform to implement libnodegit because it is a I/O
 driven application. Operations are performed on top of a text file based
 repository in disk, and computation most of the time takes less time than disk
 access. It is a task where Node.js can shine.
+
+\subsection{Miscellaneous tools}
+
+\begin{description}
+
+\item[1. npm]  \hfill \\
+  NPM is a library and dependency manager for node.js applications
+
+\item[2. node-gyp] \hfill \\
+  Node-gyp is the build tool used. It can generate platform independent
+  Makefiles from simpler configuration files.
+
+\item[3. mocha] \hfill \\
+  Libnodegit follows Behavior Driven Development(BDD) and mocha is the
+  preferred testing framework.
+
+\item[4. CoffeeScript] \hfill \\
+  CoffeeScript is a tiny language that gets compiled into JavaScript and is used
+  widely in the project.
+
+\end{description}
+
+Other than the development tools, reports are prepared with \LaTeX2e, diagrams
+generated with \textit{graphviz} and \textit{Emacs} \textit{graphviz-mode}.
+Documentation is written in \textit{markdown-mode} and powered with GitHub's
+Gollum wiki.
