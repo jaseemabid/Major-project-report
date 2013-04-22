@@ -1,0 +1,50 @@
+\section{JavaScript}
+
+JavaScript is most commonly used for client-side scripting in a browser, being
+usedto manipulate Document Object Model (DOM) objects for example. The DOM is
+not, however, typically provided by the JavaScript engine but instead by a
+browser. The same is true of V8. Google Chrome provides the DOM. V8 does however
+provide all the data types, operators, objects and functions specified in the
+ECMA standard.
+
+\subsection{The language}
+
+\subsection{Browser wars and VM performance }
+
+\subsection{Server side JavaScript}
+
+\subsection{v8}
+
+V8 is Google\’'s open source JavaScript engine written in C++ and is used in
+Google Chrome, the open source browser from Google and implements ECMAScript as
+specified in ECMA-262, 5th edition, and runs on a wide variety of platforms.
+
+V8 can run standalone, or can be embedded into any C++ application. It compiles
+and executes JavaScript source code, handles memory allocation for objects, and
+garbage collects objects it no longer needs. V8’s stop-the-world, generational,
+accurate garbage collector is one of the keys to V8’s performance. It enables
+any C++ application to expose its own objects and functions to JavaScript code.
+It’s up to the programmer to decide on the objects and functions he would like
+to expose to JavaScript. This means an application can be written in C++, but an
+API for that can be exposed in JavaScript. This is exactly what libnodegit is.
+The core of the application is written in JavaScript and a richer API is
+exposed.
+
+\subsection{Node.js }
+
+Node.js adds the missing pieces to v8. Node describes itself as \textit{evented
+  I/O for V8 javascript}. Its a toolkit for writing extremely high performance
+non-blocking event driven network servers in JavaScript. Think similar to
+Twisted\cite{twisted} or EventMachine\cite{eventmachine} but for JavaScript
+instead of Python or Ruby. On top of what v8 provides, Node adds non-blocking
+file and network I/O, process management, and bunch of other handy things on top
+of v8 and make it work on all platforms. Also, it gives access to numerous
+libraries and a package management system called Node Package
+Manager(npm)\cite{npm} to work with the library dependencies.
+
+Its event-driven, non-blocking I/O model makes it lightweight and efficient,
+perfect for data-intensive real time applications that run across distributed
+devices. Node.js is a good platform to implement libnodegit because it is a I/O
+driven application. Operations are performed on top of a text file based
+repository in disk, and computation most of the time takes less time than disk
+access. It is a task where Node.js can shine.
