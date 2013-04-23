@@ -1,26 +1,66 @@
 \chapter{Work Done}
 
-\section{<Section title>}
+The core that is required to build usable applications over libnodegit can be
+developed in time and the project is already in a usable condition. The library
+can already read most of the repository properties and applications can be
+scripted in JavaScript to work with the log, index properties etc. The examples
+folder in the source contains reference implementations of few standard git
+commands, like \texttt{git log --oneline -10}.
 
-\subsection{<Sub-section title>}
+The magnitude of the project was underestimated while the milestones were
+decided, but a good portion of that can be completed on time. The project
+required exceptionally good C++ knowledge and required a lot more time than what
+was anticipated.
 
-\subsection{<Sub-section title>}
-some text\cite{citation-2-name-here}, some more text
-\subsection{<Sub-section title>}
+\section{Progress made in previous semester}
 
-\subsection{<Sub-section title>}
+\begin{enumerate}
 
-Refer figure \ref{fig:label}.
+\item Clear project goals were defined.
+\item Familiarized with git, libgit2 and node.js API and design principles.
+\item Designed the JavaScript API
+\item Started writing actual code
+\item Read repository properties/status
 
-\begin{figure}[htb]
-\centering
-\includegraphics[scale=0.3]{./glider} % e.g. insert ./image for image.png in the working directory, adjust scale as necessary
-\caption{<Caption here>}
-\label{fig:label} % insert suitable label, this is used to refer to a fig from within the text as shown above
-\end{figure}
+\end{enumerate}
 
-\subsection{<Sub-section title>}
+\section{Active status}
+
+\begin{enumerate}
+
+	\item Ability to work with the git index
+    \item Read the history/logs
+    \item History walking, branching
+    \item Read arbitrary commits/blobs/notes/branches
+
+\end{enumerate}
 
 
-\section{<Section title>}
+\section{Expectations by the end of the semester}
 
+\begin{enumerate}
+
+	\item Read and write repository configurations and settings
+    \item File and diff viewing
+    \item Simple Asynchronous API for demonstration
+
+\end{enumerate}
+
+
+
+
+\section{Milestones that  might be missed}
+
+
+\begin{enumerate}
+
+	\item Modify/Update history - Write new commits, rebase etc
+    \item Network \& initialization features
+
+\end{enumerate}
+
+\section{Future work}
+
+The research on this project was really fruitfull and will be
+
+There are certain features that will make the library standout and unique.
