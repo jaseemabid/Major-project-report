@@ -1,11 +1,11 @@
 \chapter{Work Done}
 
-The core that is required to build usable applications over libnodegit can be
-developed in time and the project is already in a usable condition. The library
-can already read most of the repository properties and applications can be
-scripted in JavaScript to work with the log, index properties etc. The examples
-folder in the source contains reference implementations of few standard git
-commands, like \texttt{git log --oneline -10}.
+The core that is required to build usable applications can be developed in time
+and the library is already in a usable condition. It can already read most of
+the repository properties and applications can be scripted in JavaScript to work
+with the log, index properties etc. The examples folder in the source contains
+reference implementations of few standard git commands, like \texttt{git log
+  --oneline -10}.
 
 The magnitude of the project was underestimated while the milestones were
 decided, but a good portion of that can be completed on time. The project
@@ -16,11 +16,16 @@ was anticipated.
 
 \begin{enumerate}
 
-\item Clear project goals were defined.
-\item Familiarized with git, libgit2 and node.js API and design principles.
-\item Designed the JavaScript API
-\item Started writing actual code
-\item Read repository properties/status
+	\item Conducted preliminary research and feasibility study on the subject
+	\item Clear project goals were defined
+	\item Familiarized with git, learned about the internals and plumbing
+    \item Familiarized with libgit2, and its low level C API and how it maps to
+      git commands.
+    \item Learned extensively about V8 and C++
+    \item Designed the JavaScript API
+    \item Decided the test suite and wrote initial tests for the API
+    \item Got the initial version of the code ready, which could read basic
+      repository properties.
 
 \end{enumerate}
 
@@ -28,10 +33,12 @@ was anticipated.
 
 \begin{enumerate}
 
-	\item Ability to work with the git index
-    \item Read the history/logs
-    \item History walking, branching
+	\item Ability to work with the index
+    \item Read the history and logs
+    \item History walking, branching, some visualizations
     \item Read arbitrary commits/blobs/notes/branches
+    \item Wrote extensive tests for finished features
+    \item Initial work to package the library for simple installation
 
 \end{enumerate}
 
@@ -41,13 +48,11 @@ was anticipated.
 \begin{enumerate}
 
 	\item Read and write repository configurations and settings
+    \item Complete history walking
     \item File and diff viewing
     \item Simple Asynchronous API for demonstration
 
 \end{enumerate}
-
-
-
 
 \section{Milestones that  might be missed}
 
@@ -61,6 +66,9 @@ was anticipated.
 
 \section{Future work}
 
-The research on this project was really fruitfull and will be
-
-There are certain features that will make the library standout and unique.
+The research on this project was really a good learning experience and will be
+continued even after the project duration. There are certain features that will
+make the library standout and unique and priority will be gives to add those,
+like history visualization etc. A GUI application using the library is also
+planned and will start working on that soon after the major milestones are
+complete.
