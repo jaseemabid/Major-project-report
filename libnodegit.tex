@@ -28,3 +28,41 @@ implementation details.
 \end{description}
 
 \section{API}
+
+The API is essentially is an abstraction from the low level \texttt{git
+  --plumping} or \texttt{libgit2} to a higher level. It is explained with
+examples.
+
+\subsection{API example - \texttt{git log}}
+
+The simplest of the git operations is to see the log of the project history.
+Here is an example of getting the details of the last 2 commits from the
+libnodegit project the normal git way.
+
+\begin{verbatim}
+
+$ cd Projects/libnodegit/
+$ git log -2
+
+commit 1a9973aacc3a080add250228a9cee571945e72ec
+Author: Jaseem Abid <jaseemabid@gmail.com>
+Date:   Fri Apr 26 19:23:21 2013 +0530
+
+    README fixes
+
+commit 0dd1b45b20a1e4827d268f1b859ffcb5dd39069d
+Author: Jaseem Abid <jaseemabid@gmail.com>
+Date:   Sat Apr 20 07:37:04 2013 +0530
+
+    `npm link` loops calling npm rebuild
+
+    This might be the issue, deal later.
+    https://github.com/isaacs/npm/issues/2788
+
+commit 01b58820ae28938dec9bb5575afc4624a992b21d
+Author: Jaseem Abid <jaseemabid@gmail.com>
+Date:   Mon Mar 25 21:15:30 2013 +0530
+
+    Whitespace fixes
+
+\end{verbatim}
