@@ -2,3 +2,25 @@
 
 This section aims to give a detailed view into certain design concepts and
 implementation details.
+
+\section{Design decisions}
+
+\begin{description}
+
+\item[1. Implement only the absolute minimum in C++] \hfill \\
+  Jumping a level down to C++ is definitely slow for small trivial tasks. For
+  eg, if function expects \texttt{n} arguments, an exception is thrown at
+  JavaScript layer before dropping down to C++ if it gets less than n arguments.
+  If something can be done without C++, it is ignored.
+
+\item[2. Polish API with JS wrapper functions] \hfill \\
+  Almost all functions implemented in C++, end with a trailing underscore, like
+  \texttt{reference\_} and is never exposed from the API. An equivalent wrapper
+  function in JavaScript will be called \texttt{reference}, which will make sure
+  that the arguments are correct, call the underlying C++ implementation and
+  finally make sure that the result is returned in the right format. This rule
+  is ignored for non trivial functions like head.
+
+\end{description}
+
+\section{API}
