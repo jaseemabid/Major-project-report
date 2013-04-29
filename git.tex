@@ -1,87 +1,80 @@
 \section{Git}
 
-Git is fundamentally a content addressable filesystem with a VCS user
-interface written on top of it. It is a simple key value data store
-were you can insert any kind of content into it, and it will give you
-back a key - a SHA1 id that you can use to retrieve the content again
-at any time.
+Git is fundamentally a content addressable filesystem with a VCS user interface
+written on top of it. It is a simple key value data store were you can insert
+any kind of content into it, and it will give you back a key - a SHA1 id that
+you can use to retrieve the content again at any time.
 
-Git’s design was inspired by BitKeeper and Monotone\cite{inspiration}.
-It was originally designed as a low-level version control system
-engine on top of which others could write front ends. However, the
-core project has since become a complete revision control system that
-is usable directly. More of this will be discussed later.
+Git’s design was inspired\cite{inspiration} by BitKeeper and Monotone. It was
+originally designed as a low level version control system engine on top of which
+others could write front ends. However, the core project has since become a
+complete revision control system that is usable directly. More of this will be
+discussed later.
 
 \subsection{Characteristics \& Features}
 
-Git’s design is a synthesis of Torvalds’s experience with Linux in
-maintaining a large distributed development project, along with his
-intimate knowledge of file system performance gained from the same
-project and the urgent need to produce a working system
+Git\’'s design is a synthesis of Torvalds\'’s experience with Linux in
+maintaining a large distributed development project, along with his intimate
+knowledge of file system performance gained from the same project and the urgent
+need to produce a working system
 
-in short order. These influences led to the following implementation
-choices:
+in short order. These influences led to the following implementation choices:
 
 \begin{description}
 
-\item[1. Strong support for non-linear development] \hfill \\
+\item[1. Strong support for non linear development] \hfill \\
   Git supports rapid branching and merging, and includes specific tools for
   visualizing and navigating a nonlinear development history. Branches in git
   are very lightweight: A branch in git is only a reference to a single commit.
   With its parental commits, the full branch structure can be constructed.
 
 \item[2. Distributed development] \hfill \\
-  Like Darcs, BitKeeper, Mercurial, SVK, Bazaar and Monotone, Git
-  gives each developer a local copy of the entire development history,
-  and changes are copied from one such repository to another. These
-  changes are imported as additional development branches, and can be
-  merged in the same way as a locally developed branch.
+  Like Darcs, BitKeeper, Mercurial, SVK, Bazaar and Monotone, Git gives each
+  developer a local copy of the entire development history, and changes are
+  copied from one such repository to another. These changes are imported as
+  additional development branches, and can be merged in the same way as a
+  locally developed branch.
 
 \item[3. Compatibility with existing systems/protocols] \hfill \\
-  Repositories can be published via HTTP, FTP, rsync, or a Git
-  protocol over either a plain socket or ssh. Git also has a CVS
-  server emulation, which enables the use of existing CVS clients and
-  IDE plugins to access Git repositories. Subversion and SVK
-  repositories can be used directly with git-svn.
+  Repositories can be published via HTTP, FTP, rsync, or a Git protocol over
+  either a plain socket or ssh. Git also has a CVS server emulation, which
+  enables the use of existing CVS clients and IDE plugins to access Git
+  repositories. Subversion and SVK repositories can be used directly with
+  git-svn.
 
 \item[4. Efficient handling of large projects] \hfill \\
-  Git is very fast and scalable, and performance tests showed it was
-  an order of magnitude faster than some revision control systems, and
-  fetching revision history from a locally stored repository can be
-  one hundred times faster than fetching it from the remote server. In
-  particular, Git does not get slower as the project history grows
-  larger.
+  Git is very fast and scalable, and performance tests showed it was an order of
+  magnitude faster than some revision control systems, and fetching revision
+  history from a locally stored repository can be one hundred times faster than
+  fetching it from the remote server. In particular, Git does not get slower as
+  the project history grows larger.
 
 \item[5. Cryptographic authentication of history] \hfill \\
-  The Git history is stored in such a way that the id of a particular
-  revision (a commit in Git terms) depends upon the complete
-  development history leading up to that commit. Once it is published,
-  it is not possible to change the old versions without it being
-  noticed.
+  The Git history is stored in such a way that the id of a particular revision
+  (a commit in Git terms) depends upon the complete development history leading
+  up to that commit. Once it is published, it is not possible to change the old
+  versions without it being noticed.
 
-\item[6. Toolkit-based design] \hfill \\
-  Git was designed as a set of programs written in C, and a number of
-  shell and perl scripts that provide wrappers around those programs.
-  Although most of those scripts have since been rewritten in C for
-  speed and portability, the design remains, and it is easy to chain
-  the components together.
+\item[6. Toolkit based design] \hfill \\
+  Git was designed as a set of programs written in C, and a number of shell and
+  perl scripts that provide wrappers around those programs. Although most of
+  those scripts have since been rewritten in C for speed and portability, the
+  design remains, and it is easy to chain the components together.
 
 \item[7. Garbage accumulates unless collected] \hfill \\
-  Aborting operations or backing out changes will leave useless
-  dangling objects in the database. These are generally a small
-  fraction of the continuously growing history of wanted objects. Git
-  will automatically perform garbage collection when enough loose
-  objects have been created in the repository or after a specific
-  interval like a month or a week. Garbage collection can be called
-  explicitly using ‘git gc –prune‘.
+  Aborting operations or backing out changes will leave useless dangling objects
+  in the database. These are generally a small fraction of the continuously
+  growing history of wanted objects. Git will automatically perform garbage
+  collection when enough loose objects have been created in the repository or
+  after a specific interval like a month or a week. Garbage collection can be
+  called explicitly using ‘git gc –prune‘.
 
 \item[8. Periodic object packing] \hfill \\
-  Git stores each newly created object as a separate file. Although
-  individually compressed, this takes a great deal of space and is
-  inefficient. This is solved by the use of packs that store a large
-  number of objects in a single file (or network byte stream) called
-  packfile, delta-compressed among themselves. Newly created objects
-  (newly added history) are still stored singly, and periodic
-  repacking is required to maintain space efficiency.
+  Git stores each newly created object as a separate file. Although individually
+  compressed, this takes a great deal of space and is inefficient. This is
+  solved by the use of packs that store a large number of objects in a single
+  file (or network byte stream) called packfile, delta compressed among
+  themselves. Newly created objects (newly added history) are still stored
+  singly, and periodic repacking is required to maintain space efficiency.
 
 \end{description}

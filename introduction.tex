@@ -1,7 +1,7 @@
 \chapter{Introduction}
 
 Git\cite{git} is one of the most popular developer tools in use today and a lot
-of very important opensource and closed source programs use it to coordinate
+of very important opensource and proprietary projects use it to coordinate
 development. Few of the major projects that use git are the \textit{Linux
   kernel}, Perl language, WebKit, Gnome, Apache Foundation, jQuery, Emacs and
 git itself! Organizations like Facebook, Google and Microsoft use it internally
@@ -9,17 +9,16 @@ to develop their core products.
 
 JavaScript\cite{javascript} the only language available on the biggest computing
 platform today - the web browser. It is available on almost all of the modern
-devices and is one of the most popular languages in active use today. Years of
-development polished the language so well and is very modern and powerful now.
+devices and hence is one of the most popular languages today. Years of
+development polished the language so well and it is very modern and powerful
+now.
 
 The two tools in question, Git and JavaScript are widely separated. Git was
 originally designed to be used from a standard Linux shell and JavaScript
-generally executes in the browser.
-
-Its not possible to shell out system commands or write native extensions in C
-out of the box for JavaScript and It makes linking both of them together a hard
-task. \textit{This project looks into the possibility of making them work
-  together}.
+generally executes in the browser. Its not possible to shell out system commands
+or write native extensions in C out of the box for JavaScript and It makes
+linking both of them together a hard task. \textit{This project looks into the
+  possibility of making them work together}.
 
 \section{Overview}
 
@@ -29,14 +28,14 @@ It was initially designed and developed by Linus Torvalds for Linux kernel
 development; it has since been adopted by many other projects.
 
 JavaScript (JS) is an interpreted computer programming language originally
-implemented as part of web browsers so that client-side scripts could interact
+implemented as part of web browsers so that client side scripts could interact
 with the user, control the browser, communicate asynchronously, and alter the
-document content that was displayed. It is prototype-based, dynamic, weakly
-typed, and has first-class functions. Its syntax was influenced by the language
+document content that was displayed. It is prototype based, dynamic, weakly
+typed, and has first class functions. Its syntax was influenced by the language
 C. JavaScript copies many names and naming conventions from Java, but the two
 languages are otherwise unrelated and have very different semantics. The key
 design principles within JavaScript are taken from the Self and Scheme
-programming languages. It is a multi-paradigm language, supporting
+programming languages. It is a multiparadigm language, supporting
 object-oriented, imperative, and functional programming styles.
 
 Git's primary user interface is the command line shell and it is really good in
@@ -52,47 +51,46 @@ Alternate interfaces expand the features of git core to new dimensions.
 \newcommand\sectionTitle[1]{\begin{flushright}\textit{#1}\end{flushright}}
 \sectionTitle{The motivations behind the project}
 
-\textit{Git is awesome}! Amazing number of tools have been built using
-git, in ways that was never expected. Git at its core is a content
-addressable file system which can be used as a database. Its transport
-mechanisms are used to deploy applications, synchronize data etc. The
-possibilities of git are endless and by providing an alternate
-interface to git, libnodegit is extending the possibilities even more.
+Amazing number of tools have been built using git, in ways that was never
+expected. Git at its core is a content addressable file system which can be used
+as a database. Its transport mechanisms can used to deploy applications,
+synchronize data etc. The possibilities are endless and by providing an
+alternate interface to git, libnodegit is extending the possibilities even more.
 
 People have built amazing tools on top of git core, like issue
-trackers\cite{gaskit}, blogging engines\cite{octopress}, project
-notification systems\cite{git-dude} smarter FTP clients\cite{git-ftp}
-that transfer only the changed files, production
-quality\cite{gollum-imporoved} wiki\cite{gollum} etc.
+trackers\cite{gaskit}, blogging engines\cite{octopress}, project notification
+systems\cite{git-dude} smarter FTP clients\cite{git-ftp} that transfer only the
+changed files, production quality\cite{gollum-imporoved} wikis\cite{gollum} etc.
 
-Git is the standard way to deploy apps on heroku\cite{git-heroku} now,
-one of the largest PaaS\cite{PaaS} providers on the internet. Git is
-used in a much simpler manner by designers\cite{git-designers}, with a
-smaller subset. A lot of others tools and use cases are listed in the
-git wiki\cite{git-tools} for reference.
+Git is the standard way to deploy apps on heroku\cite{git-heroku} now, one of
+the largest PaaS\cite{PaaS} providers on the internet. Git is used in a much
+simpler manner by designers\cite{git-designers}, with a smaller subset. A lot of
+others tools and use cases are listed in the git wiki\cite{git-tools} for
+reference.
 
-By providing an API in a very popular, easy to use programming
-language, libnodegit aims to help people build the next great tool,
-much easier.
+By providing an API in a very popular, easy to use programming language,
+libnodegit aims to help people build the next great tool, much easier.
 
 \section{Implementation details}
 
-At the heart of the project is a C++ core, written with libgit2 and node.js. The
-project core is similar to a \textit{Monolithic kernel}\cite{monolithic-kernel},
-where all communication from the JavaScript API, happens through the kernel. Its
-not possible for JavaScript API to bypass the core and talk to the git
-repository directly like a \textit{Microkernel}\cite{microkernel}
+At the heart of the project is a C++ core, written with libgit2\cite{libgit2}
+and node.js\cite{node}. The project core is similar to a \textit{Monolithic
+  kernel}\cite{monolithic-kernel}, where all communication from the JavaScript
+API, happens through the kernel. Its not possible for JavaScript API to bypass
+the core and talk to the git repository directly like a
+\textit{Microkernel}\cite{microkernel}
 
 All interactions with git core are done with libgit2. It does the dirty work of
 parsing the git object store and returning appropriate data structures back to
-the application core. Node.js allows this data to be returned back to the
-JavaScript layer, by creating native bindings in C. It is this component that
-makes the project possible.
+the application. Node.js allows this data to be returned back to the JavaScript
+layer, by creating native bindings in C. It is one of the most important
+component that makes the project possible.
 
 JavaScript executes in various environments now, the most popular ones being web
-browsers and \textit{node.js}. It will be possible to write applications that
-can harness the power of git core, in a very intuitive manner using libnodegit.
-The simple scripts written in JavaScript will be executed by node.js.
+browsers and now in a standard shell with \textit{node.js}. It will be possible
+to write applications that can harness the power of git core, in a very
+intuitive manner using libnodegit. The simple scripts written in JavaScript will
+be executed by node.js.
 
 \section{Background and recent research}
 
