@@ -1,21 +1,22 @@
 \chapter{Work Done}
 
-The core that is required to build usable applications can be developed in time
-and the library is already in a usable condition. It can already read most of
-the repository properties and applications can be scripted in JavaScript to work
+The core that is required to build usable applications is complete and the
+library is already in a usable condition. It can already read most of the
+repository properties and applications can be scripted in JavaScript to work
 with the log, index properties etc. The examples folder in the source contains
 reference implementations of few standard git commands, like \texttt{git log
   --oneline -10}.
 
+The project is very modular, and new features can be added relatively easily
+now.
+
 The magnitude of the project was underestimated while the milestones were
-decided, but a good portion of that can be completed on time. The project
+decided, but a good portion of that could be completed on time. The project
 required exceptionally good C++ knowledge and required a lot more time than what
 was anticipated.
 
 \section{Progress made in previous semester}
-
 \begin{enumerate}
-
 	\item Conducted preliminary research and feasibility study on the subject
 	\item Clear project goals were defined
 	\item Familiarized with git, learned about the internals and plumbing
@@ -26,40 +27,25 @@ was anticipated.
     \item Decided the test suite and wrote initial tests for the API
     \item Got the initial version of the code ready, which could read basic
       repository properties.
-
+    \item Made the design modular so that new features can be added relatively
+      easily.
 \end{enumerate}
 
 \section{Active status}
-
 \begin{enumerate}
-
 	\item Ability to work with the index
     \item Read the history and logs
     \item History walking, branching, some visualizations
     \item Read arbitrary commits/blobs/notes/branches
     \item Wrote extensive tests for finished features
     \item Initial work to package the library for simple installation
-
 \end{enumerate}
 
-
-\section{Expectations by the end of the semester}
-
+\section{Milestones could not be completed}
 \begin{enumerate}
-
-	\item Read and write repository configurations and settings
-    \item Complete history walking
-    \item File and diff viewing
-    \item Simple Asynchronous API for demonstration
-
-\end{enumerate}
-
-\section{Milestones that  might be missed}
-
-
-\begin{enumerate}
-
-	\item Modify/Update history - Write new commits, rebase etc
+	\item File and diff viewing
+    \item Read and write repository configurations and settings
+    \item Modify history - Write new commits, rebase etc
     \item Network \& initialization features
-
+    \item Asynchronous API
 \end{enumerate}
