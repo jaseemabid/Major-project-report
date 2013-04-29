@@ -7,9 +7,9 @@ development. Few of the major projects that use git are the \textit{Linux
 git itself! Organizations like Facebook, Google and Microsoft use it internally
 to develop their core products.
 
-JavaScript\cite{javascript} the only language available on the biggest computing
-platform today - the web browser. It is available on almost all of the modern
-devices and hence is one of the most popular languages today. Years of
+JavaScript\cite{javascript} is the only language available on the biggest
+computing platform today - the web browser. It is available on almost all of the
+modern devices and hence is one of the most popular languages today. Years of
 development polished the language so well and it is very modern and powerful
 now.
 
@@ -43,7 +43,7 @@ its own way. There are alternate user interfaces for git, like
 magit\cite{magit}, an interface heavily optimized for Emacs\cite{emacs} users.
 Alternate interfaces expand the features of git core to new dimensions.
 
-\textbf{This project aims to build an alternate interface to Git, which can be
+\emph{This project aims to build an alternate interface to Git, which can be
   used from JavaScript.}
 
 \section{Why libnodegit?}
@@ -74,11 +74,9 @@ libnodegit aims to help people build the next great tool, much easier.
 \section{Implementation details}
 
 At the heart of the project is a C++ core, written with libgit2\cite{libgit2}
-and node.js\cite{node}. The project core is similar to a \textit{Monolithic
-  kernel}\cite{monolithic-kernel}, where all communication from the JavaScript
-API, happens through the kernel. Its not possible for JavaScript API to bypass
-the core and talk to the git repository directly like a
-\textit{Microkernel}\cite{microkernel}
+and node.js\cite{node}. All communication from the JavaScript API, happens
+through this core. Its not possible for JavaScript API to bypass the core and
+talk to the git repository directly due to environment restrictions.
 
 All interactions with git core are done with libgit2. It does the dirty work of
 parsing the git object store and returning appropriate data structures back to
@@ -92,7 +90,7 @@ to write applications that can harness the power of git core, in a very
 intuitive manner using libnodegit. The simple scripts written in JavaScript will
 be executed by node.js.
 
-\section{Background and recent research}
+\section{Background and recent work}
 
 JavaScript is my primary programming language for last 3 years. I was introduced
 to Git over 2 years back and I have worked extensively with it since then. I
