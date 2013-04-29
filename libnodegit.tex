@@ -18,10 +18,14 @@ implementation details.
   \texttt{reference\_} and is never exposed from the API. An equivalent wrapper
   function in JavaScript will be called \texttt{reference}, which will make sure
   that the arguments are correct, call the underlying C++ implementation and
-  finally make sure that the result is returned in the right format. Wrapper
-  functions are also used for lazy evaluation in certain situations.
+  returns the result with appropriate modifications.
 
-\item[3. Follow OOP standards as much as possible] \hfill \\
+\item[3. Prefer lazy evaluation wherever possible] \hfill \\
+  Wrapper functions are used for lazy evaluation for performance. For example,
+  the C++ function \texttt{parents\_} return an array of SHA1 strings, and the
+  wrapper function \textit{parents} converts it into an array of reference
+  instances only when the function is explicitly called.
+
 \item[4. Automate tasks with Makefiles and build tools like gyp] \hfill \\
 \item[5. Write tests to ensure correctness wherever possible] \hfill \\
 
