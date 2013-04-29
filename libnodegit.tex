@@ -40,13 +40,13 @@ examples.
 \subsection{API example - \texttt{git log}}
 
 The simplest of the git operations is to see the log of the project history.
-Here is an example of getting the details of the last 2 commits from the
+Here is an example of getting the details of the last 3 commits from the
 libnodegit project the normal git way.
 
 \begin{verbatim}
 
 $ cd Projects/libnodegit/
-$ git log -2
+$ git log -3
 
 commit 1a9973aacc3a080add250228a9cee571945e72ec
 Author: Jaseem Abid <jaseemabid@gmail.com>
@@ -73,23 +73,22 @@ Date:   Mon Mar 25 21:15:30 2013 +0530
 
 Its quite easy and convenient for humans to parse this output and get the
 required information out of it. Consider parsing this for machine consumption.
-It becomes an overhead and error prone. Getting a list of SHA1 ids or emails out
-of this takes us back to regular expressions and language parsers, which is what
-libnodegit is trying to ignore.
+Getting a list of SHA1 ids or emails out of this takes us back to regular
+expressions and language parsers - an overhead and error prone task. This is
+what libnodegit is trying to improve.
 
 Here is the same task with libnodegit library.
 
 \begin{verbatim}
 
 # Require the library
-l = require(’libnodegit’)
+l = require "libnodegit"
 
 # Initialize the repo with path alone
 repo = new l.Repository "~/Projects/libnodegit"
 
 # Get last 2 commits
-commits = repo.log
-              count : 2
+commits = repo.log {count : 2}
 
 # Print the commits array
 console.log commits
@@ -120,4 +119,5 @@ console.log commits
 
 In the example, the log function returns an array of commit objects, each with
 its own properties which can be easily manipulated and required information can
-be easily filtered from it.
+be easily filtered from it. Extracting the list of SHA ids is a trivial task
+here.
