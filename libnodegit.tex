@@ -18,17 +18,18 @@ entire project, went through several iterations and finally the decision was to
 do it with JavaScript. The final version of the project is the result of so many
 such decisions, and a few will be discussed here.
 
-The original idea was to do it with C++, implementing the logic in one place
+The original idea was to do it with C++. Implementing the logic in one place
 will reduce complexity and maintenance overhead. This turned out to be very
-difficult and the idea was dropped for the alternative.
+difficult and the idea was dropped for the alternative. A few such decisions
+are,
 
 \subsection{Polish API with JS wrapper functions}
 
 Almost all functions implemented in C++, end with a trailing underscore, like
 \texttt{reference\_}, \texttt{head\_} etc and is almost never exposed from the
-API. An equivalent wrapper function in JavaScript will be called \texttt{reference} or
-\texttt{head} respectively. Wrapper functions will use the underlying C++
-implementation and returns data appropriately. \\
+API. An equivalent wrapper function in JavaScript will be called
+\texttt{reference} or \texttt{head} respectively. Wrapper functions will use the
+underlying C++ implementation and return data appropriately. \\
 
 \textbf{Pros:}
 \begin{enumerate}
@@ -54,12 +55,13 @@ implementation and returns data appropriately. \\
 \subsection{Prefer lazy evaluation wherever possible}
 
 Wrapper functions can be used for performance gain with lazy evaluation. For
-example, the C++ function \texttt{parents\_} return an array of SHA1 strings, and the
-wrapper function \textit{parents} converts it into an array of reference instances only
-when the function is explicitly called, and not when the original commit instance is
-constructed.
+example, the C++ function \texttt{parents\_} return an array of SHA1 strings,
+and the wrapper function \texttt{parents} converts it into an array of reference
+instances only when the function is explicitly called, and not when the original
+commit instance is constructed.
 
 \subsection{Automate tasks with tests and build tools like gyp/Makefiles}
+
 Ease of inclusion of this library in a 3rd party module is critically important
 for its adaptation and success. Generally node.js libraries can be pushed to the
 NPM\cite{npm} repository so that other developers can install it with one single
@@ -70,7 +72,7 @@ will be a priority and can be achieved only with maximum automation.
 
 \section{API}
 
-The API is essentially is an abstraction from the low level \texttt{git
+The API is essentially is an interface abstracting the low level \texttt{git
   --plumping} or \texttt{libgit2} to a higher level. It is explained with
 examples.
 
