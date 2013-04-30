@@ -12,31 +12,61 @@ implementation details.
 
 \section{Design as  decisions}
 
-\begin{description}
+If the same task can be done with both C++ and JavaScript, which language should
+be used to do that? This was probably one of the hardest design decisions in the
+entire project, went through several iterations and finally the decision was to
+do it with JavaScript. The final version of the project is the result of so many
+such decisions, and a few will be discussed here.
 
-\item[1. Implement only the absolute minimum in C++] \hfill \\
-  Jumping a level down to C++ is definitely slow for small trivial tasks. For
-  eg, if function expects \texttt{n} arguments, an exception is thrown at
-  JavaScript layer before dropping down to C++ if it gets less than n arguments.
-  If something can be done without C++, it is ignored.
+The original idea was to do it with C++, implementing the logic in one place
+will reduce complexity and maintenance overhead. This turned out to be very
+difficult and the idea was dropped for the alternative.
 
-\item[2. Polish API with JS wrapper functions] \hfill \\
-  Almost all functions implemented in C++, end with a trailing underscore, like
-  \texttt{reference\_} and is never exposed from the API. An equivalent wrapper
-  function in JavaScript will be called \texttt{reference}, which will make sure
-  that the arguments are correct, call the underlying C++ implementation and
-  returns the result with appropriate modifications.
+\subsection{Polish API with JS wrapper functions}
 
-\item[3. Prefer lazy evaluation wherever possible] \hfill \\
-  Wrapper functions are used for lazy evaluation for performance. For example,
-  the C++ function \texttt{parents\_} return an array of SHA1 strings, and the
-  wrapper function \textit{parents} converts it into an array of reference
-  instances only when the function is explicitly called.
+Almost all functions implemented in C++, end with a trailing underscore, like
+\texttt{reference\_}, \texttt{head\_} etc and is almost never exposed from the
+API. An equivalent wrapper function in JavaScript will be called \texttt{reference} or
+\texttt{head} respectively. Wrapper functions will use the underlying C++
+implementation and returns data appropriately. \\
 
-\item[4. Automate tasks with Makefiles and build tools like gyp] \hfill \\
-\item[5. Write tests to ensure correctness wherever possible] \hfill \\
+\textbf{Pros:}
+\begin{enumerate}
 
-\end{description}
+	\item Doing the same task almost always require less code in JavaScript.
+    \item Programming JavaScript is generally easier.
+    \item Wrapper functions make lazy evaluation easier.
+    \item Argument validation can be much faster with JavaScript. For eg, if function
+      expects \texttt{n} arguments, an exception is thrown at JavaScript wrapper
+      before dropping down to C++ if it gets less than n arguments.
+    \item Return types can be modified with JavaScript easily.
+
+\end{enumerate}
+
+\textbf{Cons:}
+\begin{enumerate}
+
+	\item Often the same application logic is split between functions written in 2
+      very different languages, making maintenance difficult.
+
+\end{enumerate}
+
+\subsection{Prefer lazy evaluation wherever possible}
+
+Wrapper functions can be used for performance gain with lazy evaluation. For
+example, the C++ function \texttt{parents\_} return an array of SHA1 strings, and the
+wrapper function \textit{parents} converts it into an array of reference instances only
+when the function is explicitly called, and not when the original commit instance is
+constructed.
+
+\subsection{Automate tasks with tests and build tools like gyp/Makefiles}
+Ease of inclusion of this library in a 3rd party module is critically important
+for its adaptation and success. Generally node.js libraries can be pushed to the
+NPM\cite{npm} repository so that other developers can install it with one single
+command, \texttt{npm install libnodegit}.
+
+The complexity of the project makes it hard to do so, but it is possible. This
+will be a priority and can be achieved only with maximum automation.
 
 \section{API}
 
